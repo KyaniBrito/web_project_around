@@ -15,12 +15,12 @@
   background-color: #ffffff;
 }
 
-.elements__card_image {
+.elements__card-image {
   width: 282px;
   height: 282px;
 }
 
-.elements__card_label {
+.elements__card-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +29,7 @@
   margin: 18px 15px 31px 21px;
 }
 
-.elements__card_label-place {
+.elements__card-label-place {
   font-family: "Inter";
   font-weight: 900;
   font-size: 24px;
@@ -40,7 +40,7 @@
   overflow: hidden;
 }
 
-.elements__card_label-button {
+.elements__card-label-button {
   background-image: url(../images/like\ button.svg);
   width: 21px;
   height: 19px;

@@ -23,14 +23,14 @@
   margin: 0;
 }
 
-.profile__info_first-line {
+.profile__info-line {
   display: flex;
   gap: 18px;
   width: 430px;
   align-items: center;
 }
 
-.profile__info_name {
+.profile__info-name {
   font-family: "Inter";
   font-weight: 500;
   font-size: 42px;
@@ -38,14 +38,14 @@
   margin: 0;
 }
 
-.profile__info_occupation {
+.profile__info-occupation {
   font-family: "Inter";
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
 }
 
-.profile__info_edit-button {
+.profile__info-edit {
   background-color: black;
   width: 24px;
   height: 24px;
@@ -54,7 +54,7 @@
   border: 1px solid #ffffff;
 }
 
-.profile__add_button {
+.profile__add-button {
   width: 150px;
   height: 50px;
   margin-left: auto;
@@ -71,7 +71,7 @@
     margin-right: 20px;
   }
 
-  .profile__info_name {
+  .profile__info-name {
     font-size: 35px;
   }
 }
@@ -94,25 +94,25 @@
   .profile__info {
     width: 100%;
   }
-  .profile__info_first-line {
+  .profile__info-line {
     width: 244px;
     height: 22px;
     margin: 30px auto 0;
   }
 
-  .profile__info_name {
+  .profile__info-name {
     font-weight: 500;
     font-size: 22px;
     width: 196px;
   }
 
-  .profile__info_occupation {
+  .profile__info-occupation {
     font-size: 14px;
     margin: 14px auto 0;
     text-align: center;
   }
 
-  .profile__add_button {
+  .profile__add-button {
     width: 282px;
     margin: 36px auto 0;
     padding: 0;

@@ -1,7 +1,7 @@
-const profileEditButton = document.querySelector(".profile__info_edit-button");
-const popUp = document.querySelector(".popup_overlay");
-const nameProfile = document.querySelector(".profile__info_name");
-const bioProfile = document.querySelector(".profile__info_occupation");
+const profileEditButton = document.querySelector(".profile__info-edit");
+const popUp = document.querySelector(".overlay");
+const nameProfile = document.querySelector(".profile__info-name");
+const bioProfile = document.querySelector(".profile__info-occupation");
 
 profileEditButton.addEventListener("click", function () {
   console.log("entrou");
