@@ -18,8 +18,9 @@
   color: #fff;
   gap: 18px;
   align-items: center;
-  max-width: 415px;
+  width: 415px;
   height: 77px;
+  margin: 0;
 }
 
 .profile__info_first-line {
@@ -84,7 +85,14 @@
     width: 282px;
     height: 286px;
     margin: 42px auto 0;
-    padding: 0 19px 0;
+    padding: 0;
+  }
+  .profile__avatar {
+    margin: 0;
+  }
+
+  .profile__info {
+    width: 100%;
   }
   .profile__info_first-line {
     width: 244px;
@@ -101,6 +109,7 @@
   .profile__info_occupation {
     font-size: 14px;
     margin: 14px auto 0;
+    text-align: center;
   }
 
   .profile__add_button {
