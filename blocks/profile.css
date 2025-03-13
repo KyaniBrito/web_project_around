@@ -36,6 +36,9 @@
   font-size: 42px;
   line-height: 48px;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__info-occupation {
@@ -43,6 +46,9 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__info-edit {

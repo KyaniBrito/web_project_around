@@ -18,13 +18,13 @@ popUpCloseButton.addEventListener("click", function () {
   popUp.classList.remove("popup_opened");
 });
 
-let formElement = document.querySelector(".popup__form");
+const formElement = document.querySelector(".popup__form");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
-  let inputName = document.querySelector(".popup__form-input-name");
-  let inputBio = document.querySelector(".popup__form-input-bio");
+  const inputName = document.querySelector(".popup__form-input-name");
+  const inputBio = document.querySelector(".popup__form-input-bio");
 
   nameProfile.textContent = inputName.value;
   bioProfile.textContent = inputBio.value;
