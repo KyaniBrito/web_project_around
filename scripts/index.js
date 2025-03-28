@@ -5,7 +5,6 @@ const nameProfile = document.querySelector(".profile__info-name");
 const bioProfile = document.querySelector(".profile__info-occupation");
 
 profileEditButton.addEventListener("click", function () {
-  console.log("entrou");
   popUp.classList.add("popup_opened");
   const inputName = document.querySelector(".popup__form-input-name");
   inputName.value = nameProfile.textContent;
@@ -15,7 +14,6 @@ profileEditButton.addEventListener("click", function () {
 
 const popUpCloseButton = document.querySelector(".popup__close-button");
 popUpCloseButton.addEventListener("click", function () {
-  console.log("fechar");
   popUp.classList.remove("popup_opened");
 });
 
@@ -40,21 +38,17 @@ const profileAddButton = document.querySelector(".profile__add-button");
 const addPopUp = document.querySelector(".second_overlay");
 
 profileAddButton.addEventListener("click", function () {
-  console.log("adicionar");
   addPopUp.classList.add("addpopup_opened");
 });
 
 const addPopUpCloseButton = document.querySelector(".addpopup__close-button");
 addPopUpCloseButton.addEventListener("click", function () {
-  console.log("fechar");
   addPopUp.classList.remove("addpopup_opened");
 });
 
 //----------------------LikeButton----------------------
 const likeButton = document.querySelectorAll(".elements__card-label-button");
-console.log(likeButton);
 likeButton.forEach(function (element) {
-  console.log("curtiu");
   element.addEventListener("click", function () {
     element.classList.toggle("elements__card-label-button_active");
   });
@@ -150,7 +144,6 @@ function addNewCard(event) {
   if (inputImage.value != "" && inputURL.value != "") {
     const imageNameValue = inputImage.value;
     const urlImageValue = inputURL.value;
-    console.log(inputImage.value);
     const newCard = createCard({ name: imageNameValue, link: urlImageValue });
     const cardContainer = document.querySelector(".elements__list");
     cardContainer.prepend(newCard);
@@ -163,11 +156,3 @@ formAddPopUp.addEventListener("submit", (event) => {
   addNewCard(event);
   addPopUp.classList.remove("addpopup_opened");
 });
-
-//-------------------------PopUpImage------------------------
-// const popUpImage = document.querySelector(".image_pop-up_overlay");
-
-// urlImage.addEventListener("click", function () {
-//   console.log("abriu imagem");
-//   popUpImage.classList.add("image_pop-up_opened");
-// });
