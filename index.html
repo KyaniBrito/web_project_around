@@ -25,7 +25,9 @@
           <div class="profile__info">
             <div class="profile__info-line">
               <h4 class="profile__info-name">Jacques Cousteau</h4>
-              <button class="profile__info-edit"></button>
+              <button class="profile__info-edit">
+                <img src="./images/edit button.png" alt="sinal de edição" />
+              </button>
             </div>
             <h6 class="profile__info-occupation">Explorador</h6>
             <div class="overlay" id="overlay">
@@ -33,10 +35,11 @@
                 <button class="popup__close-button"></button>
                 <form class="popup__form">
                   <h2 class="popup__form-title">Editar perfil</h2>
-                  <fieldset class="popup__form-fileds">
+                  <fieldset class="popup__form-fieldset">
                     <label for="username"></label>
                     <input
                       class="popup__form-input popup__form-input-name"
+                      placeholder="Nome de usuário"
                       type="text"
                       id="username"
                     />
@@ -44,6 +47,7 @@
                     <label for="bio"></label>
                     <input
                       class="popup__form-input popup__form-input-bio"
+                      placeholder="Sobre mim"
                       type="text"
                       id="bio"
                     />
@@ -53,81 +57,66 @@
                 </form>
               </div>
             </div>
+            <div class="second_overlay" id="second_overlay">
+              <div class="addpopup" id="addpopup">
+                <button class="addpopup__close-button"></button>
+                <form class="addpopup__form">
+                  <h2 class="addpopup__form-title">Novo local</h2>
+                  <fieldset class="addpopup__form-fieldset">
+                    <label for="title"></label>
+                    <input
+                      class="addpopup__form-input addpopup__form-input-title"
+                      placeholder="Título"
+                      type="text"
+                      id="title"
+                    />
+                    <hr class="addpopup__form-line" />
+                    <label for="link"></label>
+                    <input
+                      class="addpopup__form-input addpopup__form-input-link"
+                      placeholder="Link de imagem"
+                      type="url"
+                      id="link"
+                    />
+                    <hr class="addpopup__form-line" />
+                  </fieldset>
+                  <button class="addpopup__form-send" type="submit">
+                    Criar
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
           <button class="profile__add-button">
-            <img src="./images/add button.png" alt="sinal de soma" />
+            <img
+              class="profile__add-button-icon"
+              src="./images/add button.png"
+              alt="sinal de soma"
+            />
           </button>
         </section>
         <section class="elements">
-          <div class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/Vale de Yosemite.jpg"
-              alt="Rio cercado por montanhas e uma floresta de pinheiros"
-            />
-            <div class="elements__card-label">
-              <p class="elements__card-label-place">Vale de Yosemite</p>
-              <button class="elements__card-label-button"></button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/Lago Louise.png"
-              alt="Lago cor azul ciano cercado por montanhas"
-            />
-            <div class="elements__card-label">
-              <p class="elements__card-label-place">Lago Louise</p>
-              <button class="elements__card-label-button"></button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/Montanhas Care....png"
-              alt="Nascer do sol em meio as montanhas"
-            />
-            <div class="elements__card-label">
-              <p class="elements__card-label-place">Montanhas Care...</p>
-              <button class="elements__card-label-button"></button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/Latemar.png"
-              alt="Dolomitas em meio ao céu estrelado"
-            />
-            <div class="elements__card-label">
-              <p class="elements__card-label-place">Latemar</p>
-              <button class="elements__card-label-button"></button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/Parque Nacional....png"
-              alt=""
-            />
-            <div class="elements__card-label">
-              <p class="elements__card-label-place">
-                Parque Nacional da Vanoise
-              </p>
-              <button class="elements__card-label-button"></button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/Lago di Braies.png"
-              alt=""
-            />
-            <div class="elements__card-label">
-              <p class="elements__card-label-place">Lago di Braies</p>
-              <button class="elements__card-label-button"></button>
-            </div>
-          </div>
+          <ul class="elements__list"></ul>
+          <template id="card-template">
+            <li class="elements__item">
+              <div class="elements__card">
+                <button class="elements__card-delete-button"></button>
+                <img class="elements__card-image" src="" alt="" />
+                <div class="elements__card-label">
+                  <p class="elements__card-label-place"></p>
+                  <button class="elements__card-label-button"></button>
+                </div>
+              </div>
+            </li>
+          </template>
         </section>
+        <div class="image_pop-up_overlay">
+          <div class="image_pop-up">
+            <img class="image_pop-up__image" src="" alt="" />
+            <p class="image_pop-up__title"></p>
+            <button class="image_pop-up__close-button"></button>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&#169; 2024 Around The U.S.</p>

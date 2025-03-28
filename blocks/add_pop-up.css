@@ -1,8 +1,4 @@
-.popup {
-  position: relative;
-}
-
-.overlay {
+.second_overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +11,11 @@
   z-index: 1000;
 }
 
-.popup__form {
+.addpopup {
+  position: relative;
+}
+
+.addpopup__form {
   background-color: #fff;
   width: 430px;
   height: 330px;
@@ -29,7 +29,7 @@
   padding-bottom: 36.5px;
 }
 
-.popup__close-button {
+.addpopup__close-button {
   position: absolute;
   right: -40px;
   top: -60px;
@@ -41,11 +41,11 @@
   background-color: transparent;
 }
 
-.popup__close-button:hover {
+.addpopup__close-button:hover {
   opacity: 50%;
 }
 
-.popup_opened {
+.addpopup_opened {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-.popup__form-title {
+.addpopup__form-title {
   font-family: "Inter";
   font-weight: 900;
   width: 330px;
@@ -64,14 +64,14 @@
   padding-left: 36px;
 }
 
-.popup__form-fieldset {
+.addpopup__form-fieldset {
   border: none;
   padding: 0;
   margin: 0 36px 0 36px;
   height: 28px;
 }
 
-.popup__form-input {
+.addpopup__form-input {
   width: 358px;
   border: 0;
   background-color: transparent;
@@ -79,21 +79,21 @@
   justify-content: center;
 }
 
-.popup__form-input-name {
+.addpopup__form-input-title {
   margin-top: 54px;
 }
 
-.popup__form-input-bio {
+.addpopup__form-input-link {
   margin-top: 29px;
 }
 
-.popup__form-line {
+.addpopup__form-line {
   width: 358px;
   border: 1px solid #000000;
   opacity: 0.2;
 }
 
-.popup__form-save {
+.addpopup__form-send {
   width: 358px;
   height: 50.15px;
   border-radius: 2px;
@@ -105,35 +105,39 @@
   margin-top: auto;
 }
 
+.addpopup__form-send:hover {
+  opacity: 50%;
+}
+
 @media screen and (max-width: 544px) {
-  .popup__form {
+  .addpopup__form {
     width: 282px;
     height: 322px;
-    border-radius: 10px;
   }
 
-  .popup__close-button {
+  .addpopup__close-button {
     width: 26px;
     height: 26px;
-    right: 0px;
+    right: 0;
     background-size: contain;
   }
 
-  .popup__form-title {
+  .addpopup__form-title {
     width: 238px;
     font-size: 18px;
     margin-top: 25px;
     padding: 0 22px 0;
   }
-  .popup__form-input {
+
+  .addpopup__form-input {
     width: 238px;
   }
 
-  .popup__form-line {
+  .addpopup__form-line {
     width: 238px;
   }
 
-  .popup__form-save {
+  .addpopup__form-send {
     width: 238px;
     font-size: 16px;
   }
