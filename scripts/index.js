@@ -3,6 +3,7 @@ const profileEditButton = document.querySelector(".profile__info-edit");
 const popUp = document.querySelector(".overlay");
 const nameProfile = document.querySelector(".profile__info-name");
 const bioProfile = document.querySelector(".profile__info-occupation");
+const formElement = document.querySelector(".popup__form");
 
 profileEditButton.addEventListener("click", function () {
   popUp.classList.add("popup_opened");
@@ -17,7 +18,17 @@ popUpCloseButton.addEventListener("click", function () {
   popUp.classList.remove("popup_opened");
 });
 
-const formElement = document.querySelector(".popup__form");
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    popUp.classList.remove("popup_opened");
+  }
+});
+
+popUp.addEventListener("click", function (event) {
+  if (event.target === popUp) {
+    popUp.classList.remove("popup_opened");
+  }
+});
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -44,6 +55,18 @@ profileAddButton.addEventListener("click", function () {
 const addPopUpCloseButton = document.querySelector(".addpopup__close-button");
 addPopUpCloseButton.addEventListener("click", function () {
   addPopUp.classList.remove("addpopup_opened");
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    addPopUp.classList.remove("addpopup_opened");
+  }
+});
+
+addPopUp.addEventListener("click", function (event) {
+  if (event.target === addPopUp) {
+    addPopUp.classList.remove("addpopup_opened");
+  }
 });
 
 //----------------------LikeButton----------------------
@@ -125,6 +148,20 @@ function createCard(card) {
   });
   return cardElement;
 }
+
+const popUpImage = document.querySelector(".image_pop-up_overlay");
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    popUpImage.classList.remove("image_pop-up_opened");
+  }
+});
+
+popUpImage.addEventListener("click", function (event) {
+  if (event.target === popUpImage) {
+    popUpImage.classList.remove("image_pop-up_opened");
+  }
+});
 
 //-------------------------NewCards------------------------
 for (const card of initialCards) {
