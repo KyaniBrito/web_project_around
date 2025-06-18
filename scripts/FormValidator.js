@@ -1,43 +1,48 @@
-function enableValidation({
-  formSelector,
-  inputSelector,
-  submitButtonSelector,
-  inactiveButtonClass,
-  inputErrorClass,
-  errorClass,
-}) {
-  const forms = document.querySelectorAll(formSelector);
-  forms.forEach((form) => {
-    const inputElements = form.querySelectorAll(inputSelector);
-    const buttonElements = form.querySelector(submitButtonSelector);
+export default class FormValidator {
+  constructor({ config, formSelector }) {
+    this._config = config;
+    this._formSelector = formSelector;
+    this._inputSelector = config.inputSelector;
+    this._submitButtonSelector = config.submitButtonSelector;
+    this._inactiveButtonClass = config.inactiveButtonClass;
+    this._inputErrorClass = config.inputErrorClass;
+    this._errorClass = config.errorClass;
+  }
 
-    inputElements.forEach((input) => {
+  _getForm() {
+    return document.querySelector(this._formSelector);
+  }
+
+  _setEventListeners() {
+    this._inputElements.forEach((input) => {
       input.addEventListener("input", (event) => {
         const isValid = event.target.validity.valid;
         const validition = event.target.nextElementSibling;
-        console.log(validition);
 
         if (!isValid) {
           validition.textContent = event.target.validationMessage;
-          validition.classList.add(inputErrorClass);
-          console.log(event.target.validationMessage);
-          buttonElements.setAttribute("disabled", true);
-          buttonElements.classList.add(inactiveButtonClass);
+          validition.classList.add(this._inputErrorClass);
+          this._buttonElements.setAttribute("disabled", true);
+          this._buttonElements.classList.add(this._inactiveButtonClass);
         } else {
           validition.textContent = "";
-          validition.classList.remove(inputErrorClass);
-          buttonElements.removeAttribute("disabled");
-          buttonElements.classList.remove(inactiveButtonClass);
+          validition.classList.remove(this._inputErrorClass);
+          this._buttonElements.removeAttribute("disabled");
+          this._buttonElements.classList.remove(this._inactiveButtonClass);
         }
       });
     });
-  });
+  }
+
+  enableValidation() {
+    this._popup__form = this._getForm();
+    this._inputElements = this._popup__form.querySelectorAll(
+      this._inputSelector
+    );
+    this._buttonElements = this._popup__form.querySelector(
+      this._submitButtonSelector
+    );
+
+    this._setEventListeners();
+  }
 }
-enableValidation({
-  formSelector: ".popup__form-with-modal",
-  inputSelector: ".popup__input-with-modal",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "error-message_show_error",
-  errorClass: "error-message",
-});
