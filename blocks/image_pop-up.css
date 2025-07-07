@@ -1,4 +1,4 @@
-.image_pop-up_overlay {
+.popup_type_image {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,9 +10,12 @@
   align-items: center;
 }
 
-.image_pop-up {
-  position: relative;
+.popup_opened {
   display: flex;
+}
+
+.popup__image-container {
+  position: relative;
   flex-direction: column;
   width: auto;
   height: auto;
@@ -20,7 +23,7 @@
   max-height: 75vh;
 }
 
-.image_pop-up__image {
+.popup__image {
   max-width: 75vw;
   max-height: 75vh;
   width: 100%;
@@ -28,14 +31,14 @@
   object-fit: contain;
 }
 
-.image_pop-up__title {
+.popup__caption {
   font-family: Inter;
   font-weight: 400;
   font-size: 12px;
   color: #ffffff;
 }
 
-.image_pop-up__close-button {
+.popup__image-close-button {
   position: absolute;
   right: -40px;
   top: -60px;
