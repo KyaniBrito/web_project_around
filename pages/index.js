@@ -62,7 +62,7 @@ const section = new Section(
 );
 section.renderItens();
 
-const popupAddCard = new PopupWithForm(".second_overlay", (formData) => {
+const popupAddCard = new PopupWithForm(".add_popup", (formData) => {
   mostraItens(formData);
 
   popupAddCard.close();
