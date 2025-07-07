@@ -1,16 +1,4 @@
-export const profileEditButton = document.querySelector(".profile__info-edit");
-export const popUp = document.querySelector(".overlay");
-export const nameProfile = document.querySelector(".profile__info-name");
-export const bioProfile = document.querySelector(".profile__info-occupation");
-export const inputName = document.querySelector(".popup__form-input-name");
-export const inputBio = document.querySelector(".popup__form-input-bio");
-export const formElement = document.querySelector(".popup__form");
-export const popUpCloseButton = document.querySelector(".popup__close-button");
-export const profileAddButton = document.querySelector(".profile__add-button");
 export const addPopUp = document.querySelector(".second_overlay");
-export const addPopUpCloseButton = document.querySelector(
-  ".addpopup__close-button"
-);
 export const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -37,11 +25,8 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
-export const popUpImage = document.querySelector(".image_pop-up_overlay");
 export const inputImage = document.querySelector(".addpopup__form-input-title");
 export const inputURL = document.querySelector(".addpopup__form-input-link");
-export const imageName = document.querySelector(".elements__card-label-place");
-export const urlImage = document.querySelector(".elements__card-image");
 export const formAddPopUp = document.querySelector(".addpopup__form");
 
 //-------------------PopUp EditButton---------------------
