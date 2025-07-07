@@ -47,6 +47,7 @@
                         placeholder="Nome de usuário"
                         type="text"
                         id="username"
+                        name="username"
                         minlength="2"
                         maxlength="40"
                         required
@@ -59,6 +60,7 @@
                         placeholder="Sobre mim"
                         type="text"
                         id="bio"
+                        name="bio"
                         minlength="2"
                         maxlength="200"
                         required
@@ -92,6 +94,7 @@
                         class="addpopup__form-input addpopup__form-input-title popup__input-with-modal"
                         placeholder="Título"
                         type="text"
+                        name="name"
                         id="title"
                         minlength="2"
                         maxlength="30"
@@ -104,6 +107,7 @@
                         class="addpopup__form-input addpopup__form-input-link popup__input-with-modal"
                         placeholder="Link de imagem"
                         type="url"
+                        name="link"
                         id="link"
                         required
                       />
@@ -143,11 +147,11 @@
             </li>
           </template>
         </section>
-        <div class="image_pop-up_overlay">
-          <div class="image_pop-up">
-            <img class="image_pop-up__image" src="" alt="Place" />
-            <p class="image_pop-up__title"></p>
-            <button class="image_pop-up__close-button"></button>
+        <div class="popup popup_type_image">
+          <div class="popup__image-container">
+            <img class="popup__image" src="#" alt="Place" />
+            <p class="popup__caption"></p>
+            <button class="popup__close-button"></button>
           </div>
         </div>
       </main>
@@ -155,6 +159,6 @@
         <p class="footer__copyright">&#169; 2024 Around The U.S.</p>
       </footer>
     </div>
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
