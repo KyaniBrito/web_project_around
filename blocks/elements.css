@@ -19,6 +19,7 @@
 .elements__card-image {
   width: 282px;
   height: 282px;
+  object-fit: cover;
 }
 
 .elements__card-label {
