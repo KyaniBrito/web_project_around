@@ -15,7 +15,7 @@ import {
 
 //--------------------PopUp EditProfile----------------------
 
-const popupEditProfileForm = new PopupWithForm(".overlay", (data) => {
+const popupEditProfileForm = new PopupWithForm("#profile__overlay", (data) => {
   userInfo.setUserInfo({
     name: data.username,
     about: data.bio,
@@ -62,7 +62,7 @@ const section = new Section(
 );
 section.renderItens();
 
-const popupAddCard = new PopupWithForm(".add_popup", (formData) => {
+const popupAddCard = new PopupWithForm("#card__overlay", (formData) => {
   mostraItens(formData);
 
   popupAddCard.close();
