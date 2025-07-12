@@ -1,10 +1,6 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  /*************  ✨ Windsurf Command ⭐  *************/
-  /**
-
-/*******  6a8127e3-3d63-4f47-8e15-6fea01ec0818  *******/
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
