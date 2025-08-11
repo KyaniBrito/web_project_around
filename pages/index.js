@@ -5,6 +5,7 @@ import UserInfo from "../components/UserInfo.js";
 import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import Api from "../components/Api.js";
 import {
   addPopUp,
   initialCards,
