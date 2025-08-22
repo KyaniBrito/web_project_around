@@ -1,54 +1,62 @@
 export default class Api {
-  constructor(config) {
-    this._baseUrl = config.baseUrl;
-    this._headers = config.headers;
+  constructor({ baseUrl, headers }) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
   }
-  getUserInfo() {
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Erro: ${res.status}`);
+  }
+
+  getUser() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(
-        `Erro ao carregar informações do usuário: ${res.status}`
-      );
-    });
+    }).then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Erro ao carregar os cards: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
-  editProfile(data) {
+  editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
-        about: data.about,
+        name: name,
+        about: about,
       }),
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Erro ao editar o perfil: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
-  addCard(data) {
+  addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
-        link: data.link,
+        name: name,
+        link: link,
       }),
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Erro ao adicionar card: ${res.status}`);
-    });
+    }).then(this._checkResponse);
+  }
+
+  likeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  unlikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -56,49 +64,19 @@ export default class Api {
       method: "DELETE",
       headers: this._headers,
     }).then((res) => {
-      if (res.ok) return res.json();
+      if (res.ok) return true;
       return Promise.reject(`Erro ao deletar card: ${res.status}`);
     });
   }
 
-  likeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Erro ao dar like: ${res.status}`);
-    });
-  }
-
-  unlikeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Erro ao remover like: ${res.status}`);
-    });
-  }
-
-  updateAvatar(data) {
+  updateAvatar(avatarUrl) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar: data.avatar,
-      }),
-    }).then((res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Erro ao atualizar avatar: ${res.status}`);
-    });
+      body: JSON.stringify({ avatar: avatarUrl }),
+    }).then(this._checkResponse);
+  }
+  getAppInfo() {
+    return Promise.all([this.getUser(), this.getInitialCards()]);
   }
 }
-
-const api = new Api({
-  baseUrl: "https://around-api.pt-br.tripleten-services.com/v1/web_ptbr_05",
-  headers: {
-    authorization: "1cc33bcf-4ba9-48e3-955b-b55d7b2036a1",
-    "Content-Type": "application/json",
-  },
-});

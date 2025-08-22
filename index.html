@@ -17,11 +17,50 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__avatar"
-            src="./images/profile.jpg"
-            alt="homem de aparentemente 80 anos sorrindo com uma toca vermelha em um fundo azul"
-          />
+          <div class="profile__avatar">
+            <img
+              class="profile__avatar-image"
+              src="./images/profile.jpg"
+              alt="homem de aparentemente 80 anos sorrindo com uma toca vermelha em um fundo azul"
+            />
+            <button class="profile__avatar-edit">
+              <img
+                class="profile__avatar-edit-icon"
+                src="./images/Vector.png"
+                alt="sinal de edição do avatar"
+              />
+            </button>
+          </div>
+          <div class="popup_edit-avatar">
+            <div class="popup__edit-container">
+              <button
+                class="popup__close popup__close-button"
+                type="button"
+              ></button>
+              <h3 class="popup__title">Alterar foto do perfil</h3>
+              <form
+                class="popup__form-avatar popup__form-with-modal"
+                id="avatar__form"
+                name="form-avatar"
+                novalidate
+              >
+                <fieldset class="popup__form-fieldset">
+                  <input
+                    id="avatar-link"
+                    type="url"
+                    name="avatar"
+                    class="popup__form-input"
+                    placeholder="Link da imagem"
+                    required
+                  />
+                  <span class="error-message" id="avatar-link-error"></span>
+                </fieldset>
+                <button class="popup__form-save popup__button" type="submit">
+                  Salvar
+                </button>
+              </form>
+            </div>
+          </div>
           <div class="profile__info">
             <div class="profile__info-line">
               <h4 class="profile__info-name">Jacques Cousteau</h4>
@@ -47,7 +86,7 @@
                         placeholder="Nome de usuário"
                         type="text"
                         id="username"
-                        name="username"
+                        name="name"
                         minlength="2"
                         maxlength="40"
                         required
@@ -60,7 +99,7 @@
                         placeholder="Sobre mim"
                         type="text"
                         id="bio"
-                        name="bio"
+                        name="about"
                         minlength="2"
                         maxlength="200"
                         required
@@ -118,7 +157,7 @@
                     class="addpopup__form-send popup__button"
                     type="submit"
                   >
-                    Criar
+                    Crie
                   </button>
                 </form>
               </div>
@@ -132,6 +171,17 @@
             />
           </button>
         </section>
+        <div class="overlay popup_type_confirm">
+          <div class="popup__container">
+            <button class="popup__confirm-close-button" type="button"></button>
+            <h3 class="popup__confirm-title">Você tem certeza?</h3>
+            <form class="popup__form-confirm" name="confirm-form">
+              <button class="popup__button popup__save-confirm" type="submit">
+                Sim
+              </button>
+            </form>
+          </div>
+        </div>
         <section class="elements">
           <ul class="elements__list"></ul>
           <template id="card-template">

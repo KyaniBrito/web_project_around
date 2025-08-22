@@ -6,6 +6,8 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector(".popup__form-with-modal");
     this._inputList = Array.from(this._form.querySelectorAll("input"));
+    this._submitButton = this._form.querySelector(".popup__button");
+    this._submitButtonDefaultText = this._submitButton.textContent;
   }
 
   _getInputValues() {
@@ -14,6 +16,14 @@ export default class PopupWithForm extends Popup {
       formValues[input.name] = input.value;
     });
     return formValues;
+  }
+
+  renderLoading(isLoading, loadingText = "Salvando...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonDefaultText;
+    }
   }
 
   setEventListeners() {

@@ -1,8 +1,17 @@
 export default class Card {
-  constructor({ card, cardSelector }, handleCardClick) {
+  constructor(
+    { card, cardSelector },
+    handleCardClick,
+    handleDeleteClick,
+    popupConfirmDelete
+    // currentUserId
+  ) {
     this._card = card;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._popupConfirmDelete = popupConfirmDelete;
+    // this._currentUserId = currentUserId;
   }
 
   _getTemplate() {
@@ -21,12 +30,6 @@ export default class Card {
       });
 
     this._cardElement
-      .querySelector(".elements__card-delete-button")
-      .addEventListener("click", () => {
-        this._cardElement.remove();
-      });
-
-    this._cardElement
       .querySelector(".elements__card-image")
       .addEventListener("click", () => {
         this._handleCardClick({
@@ -34,6 +37,15 @@ export default class Card {
           link: this._card.link,
         });
       });
+
+    const deleteButton = this._cardElement.querySelector(
+      ".elements__card-delete-button"
+    );
+    deleteButton.addEventListener("click", () => {
+      console.log("Card ID:", this._card._id);
+      console.log("Card Element:", this._cardElement);
+      this._handleDeleteClick(this._card._id, this._cardElement);
+    });
   }
 
   generateCard() {
