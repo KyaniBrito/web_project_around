@@ -3,7 +3,7 @@ import Popup from "./Popup.js";
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
-    this._confirmButton = this._popup.querySelector(".popup__save-confirm");
+    this._form = this._popup.querySelector(".popup__form-confirm"); // <-- O elemento a ser inspecionado é o formulário, por isso e aqui
   }
 
   setSubmitSave(handleConfirm) {
@@ -18,7 +18,7 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._confirmButton.addEventListener("submit", (evt) => {
+    this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
       if (this._handleConfirm) {
         this._handleConfirm(this._cardId, this._cardElement);
