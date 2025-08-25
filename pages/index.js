@@ -36,10 +36,7 @@ const popupEditProfileForm = new PopupWithForm(
     api
       .editProfile(formData.name, formData.about)
       .then((data) => {
-        userInfo.setUserInfo({
-          name: data.name,
-          about: data.about,
-        });
+        userInfo.setUserInfo(data);
         popupEditProfileForm.close();
       })
       .catch((err) => console.log("Erro ao atualizar perfil:", err))
