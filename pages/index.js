@@ -73,11 +73,32 @@ const handleDeleteClick = (cardId, cardElement) => {
   popupConfirmDelete.open(cardId, cardElement);
 };
 
+const handleLikeClick = (cardInstance) => {
+  if (cardInstance.isLiked()) {
+    api
+      .unlikeCard(cardInstance._card._id)
+      .then((updatedCard) => {
+        cardInstance.updateLikes(updatedCard);
+      })
+      .catch((err) => console.log("Erro ao remover like:", err));
+  } else {
+    api
+      .likeCard(cardInstance._card._id)
+      .then((updatedCard) => {
+        cardInstance.updateLikes(updatedCard);
+      })
+      .catch((err) => console.log("Erro ao adicionar like:", err));
+  }
+};
+
 let section;
+let userId;
+
 api
   .getAppInfo()
   .then(([userData, cardsData]) => {
     console.log(cardsData);
+    userId = userData._id;
     userInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
@@ -92,7 +113,9 @@ api
           const cardElement = new Card(
             { card, cardSelector: "#card-template" },
             handleCardClick,
-            handleDeleteClick
+            handleDeleteClick,
+            handleLikeClick,
+            userId
           ).generateCard();
           return cardElement;
         },
@@ -113,7 +136,9 @@ const popupAddCard = new PopupWithForm("#card__overlay", (formData) => {
       const cardElement = new Card(
         { card: newCard, cardSelector: "#card-template" },
         handleCardClick,
-        handleDeleteClick
+        handleDeleteClick,
+        handleLikeClick,
+        userId
       ).generateCard();
 
       section.addItem(cardElement);
@@ -180,7 +205,7 @@ new FormValidator({
 
 new FormValidator({
   config: {
-    inputSelector: ".popup__form-input",
+    inputSelector: ".addpopup__form-input",
     submitButtonSelector: ".popup__button",
     inactiveButtonClass: "popup__button_disabled",
     inputErrorClass: "error-message_show_error",
